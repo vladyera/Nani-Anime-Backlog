@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopRatedCell" id="U2A-sf-Ii3" customClass="TopRatedCell" customModule="nnani" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="550" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SYe-ZV-KLL">
+                <rect key="frame" x="0.0" y="0.0" width="550" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PPH-GP-LNT">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PPH-GP-LNT" secondAttribute="height" multiplier="29:40" id="EZb-fK-02o"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rt5-WN-GBi">
+                        <rect key="frame" x="153" y="89.5" width="389" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PPH-GP-LNT" firstAttribute="leading" secondItem="SYe-ZV-KLL" secondAttribute="leading" id="7RD-9e-DC1"/>
+                    <constraint firstAttribute="bottom" secondItem="PPH-GP-LNT" secondAttribute="bottom" id="Ehu-fe-YnG"/>
+                    <constraint firstItem="Rt5-WN-GBi" firstAttribute="leading" secondItem="PPH-GP-LNT" secondAttribute="trailing" constant="8" id="IeG-zl-Bde"/>
+                    <constraint firstItem="PPH-GP-LNT" firstAttribute="top" secondItem="SYe-ZV-KLL" secondAttribute="top" id="bbc-1I-G4o"/>
+                    <constraint firstItem="Rt5-WN-GBi" firstAttribute="centerY" secondItem="SYe-ZV-KLL" secondAttribute="centerY" id="phj-9d-l2t"/>
+                    <constraint firstAttribute="trailing" secondItem="Rt5-WN-GBi" secondAttribute="trailing" constant="8" id="qdg-dK-YuV"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="272" height="315"/>
+            <point key="canvasLocation" x="114.49275362318842" y="200.89285714285714"/>
+        </collectionViewCell>
+    </objects>
+</document>
