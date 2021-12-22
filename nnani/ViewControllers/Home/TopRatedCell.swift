@@ -1,5 +1,5 @@
 //
-//  TrendingCell.swift
+//  TopRatedCell.swift
 //  nnani
 //
 //  Created by Uladzislau Yerashevich on 12/21/21.
@@ -7,32 +7,31 @@
 
 import UIKit
 
-let imageCache = NSCache<AnyObject, AnyObject>()
-
-class TrendingCell: UICollectionViewCell {
+class TopRatedCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var animeNameLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupInitialView()
     }
     
-    override func prepareForReuse() {
-        animeNameLabel.text = nil
-        posterImageView.image = nil
-    }
-    
-    private func setupInitialView() {
-        posterImageView.layer.cornerRadius = 8
+    func setupInitialView() {
+        posterImageView.layer.cornerRadius = 10
         posterImageView.contentMode = .scaleAspectFill
     }
     
+    override func prepareForReuse() {
+        posterImageView.image = nil
+        animeNameLabel.text = ""
+    }
+    
     func configure(with anime: AnimeShow) {
-        animeNameLabel.text = anime.attributes.canonicalTitle
+        self.animeNameLabel.text = anime.attributes.canonicalTitle
         guard let url = URL(string: anime.attributes.posterImage.small) else { return }
-        var task: URLSessionDataTask?
+        var task: URLSessionDataTask!
         self.posterImageView.image = nil
         if let task = task {
             task.cancel()
@@ -51,6 +50,7 @@ class TrendingCell: UICollectionViewCell {
                 self.posterImageView.image = newImage
             }
         })
-        task?.resume()
+        task.resume()
     }
+    
 }

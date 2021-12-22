@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		133D9D002772E6210017DC44 /* TrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133D9CFF2772E6210017DC44 /* TrendingCell.xib */; };
 		133D9D022772E62B0017DC44 /* TopRatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133D9D012772E62B0017DC44 /* TopRatedCell.xib */; };
+		133D9D042772F0C30017DC44 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D9D032772F0C30017DC44 /* HeaderView.swift */; };
+		133D9D082772F3730017DC44 /* AnimePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D9D072772F3730017DC44 /* AnimePreviewViewController.swift */; };
 		1358160F2772E135005A9D8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1358160E2772E135005A9D8E /* AppDelegate.swift */; };
 		135816112772E135005A9D8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135816102772E135005A9D8E /* SceneDelegate.swift */; };
 		135816132772E135005A9D8E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135816122772E135005A9D8E /* HomeViewController.swift */; };
@@ -19,11 +21,15 @@
 		135816292772E23D005A9D8E /* AnimeShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135816282772E23D005A9D8E /* AnimeShow.swift */; };
 		135816312772E56A005A9D8E /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135816302772E56A005A9D8E /* TrendingCell.swift */; };
 		135816332772E581005A9D8E /* TopRatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135816322772E581005A9D8E /* TopRatedCell.swift */; };
+		13CA7CE72772F48200C60D54 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA7CE62772F48200C60D54 /* PictureCell.swift */; };
+		13CA7CE92772F49B00C60D54 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA7CE82772F49B00C60D54 /* DescriptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		133D9CFF2772E6210017DC44 /* TrendingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCell.xib; sourceTree = "<group>"; };
 		133D9D012772E62B0017DC44 /* TopRatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopRatedCell.xib; sourceTree = "<group>"; };
+		133D9D032772F0C30017DC44 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		133D9D072772F3730017DC44 /* AnimePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimePreviewViewController.swift; sourceTree = "<group>"; };
 		1358160B2772E135005A9D8E /* nnani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nnani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1358160E2772E135005A9D8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		135816102772E135005A9D8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		135816282772E23D005A9D8E /* AnimeShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeShow.swift; sourceTree = "<group>"; };
 		135816302772E56A005A9D8E /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		135816322772E581005A9D8E /* TopRatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedCell.swift; sourceTree = "<group>"; };
+		13CA7CE62772F48200C60D54 /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
+		13CA7CE82772F49B00C60D54 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +57,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		133A5F522772F8D10034451A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		135816022772E135005A9D8E = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +99,7 @@
 			children = (
 				135816262772E1E4005A9D8E /* NetworkManager.swift */,
 				135816282772E23D005A9D8E /* AnimeShow.swift */,
+				133D9D032772F0C30017DC44 /* HeaderView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,9 +116,9 @@
 		135816242772E1C4005A9D8E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				135816122772E135005A9D8E /* HomeViewController.swift */,
-				135816302772E56A005A9D8E /* TrendingCell.swift */,
-				135816322772E581005A9D8E /* TopRatedCell.swift */,
+				13CA7CE42772F45700C60D54 /* Home */,
+				13CA7CE52772F46A00C60D54 /* Preview */,
+				133A5F522772F8D10034451A /* Search */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +131,26 @@
 				133D9D012772E62B0017DC44 /* TopRatedCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		13CA7CE42772F45700C60D54 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				135816122772E135005A9D8E /* HomeViewController.swift */,
+				135816302772E56A005A9D8E /* TrendingCell.swift */,
+				135816322772E581005A9D8E /* TopRatedCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		13CA7CE52772F46A00C60D54 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				133D9D072772F3730017DC44 /* AnimePreviewViewController.swift */,
+				13CA7CE62772F48200C60D54 /* PictureCell.swift */,
+				13CA7CE82772F49B00C60D54 /* DescriptionCell.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,11 +228,15 @@
 			files = (
 				135816272772E1E4005A9D8E /* NetworkManager.swift in Sources */,
 				135816132772E135005A9D8E /* HomeViewController.swift in Sources */,
+				13CA7CE72772F48200C60D54 /* PictureCell.swift in Sources */,
 				135816312772E56A005A9D8E /* TrendingCell.swift in Sources */,
 				135816292772E23D005A9D8E /* AnimeShow.swift in Sources */,
 				1358160F2772E135005A9D8E /* AppDelegate.swift in Sources */,
 				135816112772E135005A9D8E /* SceneDelegate.swift in Sources */,
+				133D9D082772F3730017DC44 /* AnimePreviewViewController.swift in Sources */,
 				135816332772E581005A9D8E /* TopRatedCell.swift in Sources */,
+				13CA7CE92772F49B00C60D54 /* DescriptionCell.swift in Sources */,
+				133D9D042772F0C30017DC44 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

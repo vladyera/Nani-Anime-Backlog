@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    static let sectionHeaderElementKind = "section-header-element-kind"
+    
     //Variables and constants
     @IBOutlet weak var homeCollectionView: UICollectionView!
     
@@ -29,18 +31,24 @@ class HomeViewController: UIViewController {
     }
     
     private enum Section: String, CaseIterable {
-        case topRated = "Top Rated"
         case trending = "Trending"
+        case topRated = "Top Rated"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupInitialView()
         setupCollectionView()
         downloadAnime()
     }
     
-    func downloadAnime() {
+    private func setupInitialView() {
+        self.title = "Anime List"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func downloadAnime() {
         networkManager.downloadAnimeShows(from: trendingURL) { trendingShows in
             self.trendingAnime.append(contentsOf: trendingShows)
             print("Trending: \(self.trendingAnime.count)")
@@ -52,8 +60,10 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func setupCollectionView() {
+    private func setupCollectionView() {
         homeCollectionView.dataSource = dataSource
+        homeCollectionView.delegate = self
+        homeCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: HomeViewController.sectionHeaderElementKind, withReuseIdentifier: HeaderView.reuseIdentifier)
         homeCollectionView.register(.init(nibName: CellIdentifiers.trending.rawValue, bundle: nil), forCellWithReuseIdentifier: CellIdentifiers.trending.rawValue)
         homeCollectionView.register(.init(nibName: CellIdentifiers.topRated.rawValue, bundle: nil), forCellWithReuseIdentifier: CellIdentifiers.topRated.rawValue)
         homeCollectionView.collectionViewLayout = createLayout()
@@ -77,10 +87,16 @@ extension HomeViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .fractionalHeight(9/10))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),heightDimension: .fractionalHeight(1/2.2))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),heightDimension: .fractionalHeight(1/2.1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                heightDimension: .estimated(40))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: HomeViewController.sectionHeaderElementKind, alignment: .top)
+        section.boundarySupplementaryItems = [sectionHeader]
         return section
     }
     
@@ -91,6 +107,12 @@ extension HomeViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .fractionalHeight(1/4))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                heightDimension: .estimated(40))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: HomeViewController.sectionHeaderElementKind, alignment: .top)
+        section.boundarySupplementaryItems = [sectionHeader]
         return section
     }
 }
@@ -109,6 +131,17 @@ extension HomeViewController {
                 return cell
             }
         }
+        dataSource.supplementaryViewProvider = { (
+            collectionView: UICollectionView,
+            kind: String,
+            indexPath: IndexPath) -> UICollectionReusableView? in
+            guard let supplementaryView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: HeaderView.reuseIdentifier,
+                for: indexPath) as? HeaderView else { fatalError("Cannot create header view") }
+            supplementaryView.label.text = Section.allCases[indexPath.section].rawValue
+            return supplementaryView
+        }
         return dataSource
     }
     
@@ -120,4 +153,17 @@ extension HomeViewController {
         dataSource.apply(snapshot)
     }
     
+}
+
+//MARK: - CollectionView Delegate
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as! AnimePreviewViewController
+        if indexPath.section == 0 {
+            vc.anime = trendingAnime[indexPath.row]
+        } else {
+            vc.anime = topRatedAnime[indexPath.row]
+        }
+        self.present(vc, animated: true)
+    }
 }
