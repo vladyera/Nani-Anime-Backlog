@@ -77,7 +77,7 @@ extension HomeViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .fractionalHeight(9/10))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),heightDimension: .fractionalHeight(1/1.7))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),heightDimension: .fractionalHeight(1/2.2))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
@@ -101,11 +101,11 @@ extension HomeViewController {
         let dataSource = UICollectionViewDiffableDataSource<Section, AnimeShow>(collectionView: homeCollectionView) { collectionView, indexPath, itemIdentifier in
             if indexPath.section == 0 {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.trending.rawValue, for: indexPath) as! TrendingCell
-                cell.backgroundColor = .red
+                cell.configure(with: self.trendingAnime[indexPath.row])
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.topRated.rawValue, for: indexPath) as! TopRatedCell
-                cell.backgroundColor = .red
+                cell.configure(with: self.topRatedAnime[indexPath.row])
                 return cell
             }
         }

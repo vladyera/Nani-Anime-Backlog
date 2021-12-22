@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -39,6 +40,10 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="272" height="315"/>
+            <connections>
+                <outlet property="animeNameLabel" destination="Rt5-WN-GBi" id="Iod-6h-6pX"/>
+                <outlet property="posterImageView" destination="PPH-GP-LNT" id="9Uw-Dg-rRR"/>
+            </connections>
             <point key="canvasLocation" x="114.49275362318842" y="200.89285714285714"/>
         </collectionViewCell>
     </objects>
