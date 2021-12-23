@@ -80,20 +80,27 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6S-vg-ceY">
-                                                    <rect key="frame" x="20" y="382" width="374" height="21"/>
+                                                    <rect key="frame" x="20" y="379" width="48" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qh8-4J-4Ru">
+                                                    <rect key="frame" x="338" y="11" width="56" height="31"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ycN-QI-Moe" firstAttribute="leading" secondItem="cJ1-aB-v6B" secondAttribute="leading" id="C7G-6f-W3H"/>
                                                 <constraint firstItem="a6S-vg-ceY" firstAttribute="bottom" secondItem="cJ1-aB-v6B" secondAttribute="bottomMargin" id="InF-Uc-ohr"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="a6S-vg-ceY" secondAttribute="trailing" id="dzc-Yn-oOD"/>
+                                                <constraint firstItem="qh8-4J-4Ru" firstAttribute="top" secondItem="cJ1-aB-v6B" secondAttribute="topMargin" id="bS2-77-lTY"/>
                                                 <constraint firstItem="a6S-vg-ceY" firstAttribute="leading" secondItem="cJ1-aB-v6B" secondAttribute="leadingMargin" id="fMp-Lh-jTi"/>
                                                 <constraint firstItem="ycN-QI-Moe" firstAttribute="top" secondItem="cJ1-aB-v6B" secondAttribute="top" id="gJj-vR-e6e"/>
                                                 <constraint firstAttribute="bottom" secondItem="ycN-QI-Moe" secondAttribute="bottom" id="jQ0-T6-55c"/>
+                                                <constraint firstItem="qh8-4J-4Ru" firstAttribute="trailing" secondItem="cJ1-aB-v6B" secondAttribute="trailingMargin" id="pq2-0X-Pur"/>
                                                 <constraint firstAttribute="trailing" secondItem="ycN-QI-Moe" secondAttribute="trailing" id="rU0-Rq-9hJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -145,7 +152,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5p-En-8L7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740.5797101449277" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1617" y="84"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="4Mf-gQ-m9A">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="CBH-WL-vXs" customClass="SearchViewController" customModule="nnani" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BY5-No-MOn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yhj-J9-yfO">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yDa-l6-qCG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yhj-J9-yfO" firstAttribute="leading" secondItem="yDa-l6-qCG" secondAttribute="leading" id="0k8-qi-Wae"/>
+                            <constraint firstItem="Yhj-J9-yfO" firstAttribute="top" secondItem="yDa-l6-qCG" secondAttribute="top" id="Quc-L9-JOm"/>
+                            <constraint firstItem="yDa-l6-qCG" firstAttribute="bottom" secondItem="Yhj-J9-yfO" secondAttribute="bottom" id="YaH-1c-ZY6"/>
+                            <constraint firstItem="yDa-l6-qCG" firstAttribute="trailing" secondItem="Yhj-J9-yfO" secondAttribute="trailing" id="gFw-qg-gxy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchTableView" destination="Yhj-J9-yfO" id="wdi-9h-bmP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K15-Gz-11f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2346" y="84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OZc-IC-oKg">

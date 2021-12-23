@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private var resultViewController: SearchViewController!
+    
     static let sectionHeaderElementKind = "section-header-element-kind"
     
     //Variables and constants
@@ -46,6 +48,13 @@ class HomeViewController: UIViewController {
     private func setupInitialView() {
         self.title = "Anime List"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //Setting up search
+        resultViewController = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        let searchController = UISearchController(searchResultsController: resultViewController)
+        self.navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = resultViewController
+        definesPresentationContext = true
     }
     
     private func downloadAnime() {

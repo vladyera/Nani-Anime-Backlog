@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		133A5F542772F9470034451A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133A5F532772F9470034451A /* SearchViewController.swift */; };
+		133A5F562772F9980034451A /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133A5F552772F9980034451A /* SearchCell.xib */; };
+		133A5F582772F9D80034451A /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133A5F572772F9D80034451A /* SearchCell.swift */; };
 		133D9D002772E6210017DC44 /* TrendingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133D9CFF2772E6210017DC44 /* TrendingCell.xib */; };
 		133D9D022772E62B0017DC44 /* TopRatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133D9D012772E62B0017DC44 /* TopRatedCell.xib */; };
 		133D9D042772F0C30017DC44 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D9D032772F0C30017DC44 /* HeaderView.swift */; };
@@ -21,11 +24,16 @@
 		135816292772E23D005A9D8E /* AnimeShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135816282772E23D005A9D8E /* AnimeShow.swift */; };
 		135816312772E56A005A9D8E /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135816302772E56A005A9D8E /* TrendingCell.swift */; };
 		135816332772E581005A9D8E /* TopRatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135816322772E581005A9D8E /* TopRatedCell.swift */; };
+		135A63B3277441A900B40C85 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135A63B2277441A900B40C85 /* CoreDataManager.swift */; };
+		137956DA2772FE08007F7B17 /* AnimeDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 137956D82772FE08007F7B17 /* AnimeDataModel.xcdatamodeld */; };
 		13CA7CE72772F48200C60D54 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA7CE62772F48200C60D54 /* PictureCell.swift */; };
 		13CA7CE92772F49B00C60D54 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CA7CE82772F49B00C60D54 /* DescriptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		133A5F532772F9470034451A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		133A5F552772F9980034451A /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		133A5F572772F9D80034451A /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		133D9CFF2772E6210017DC44 /* TrendingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCell.xib; sourceTree = "<group>"; };
 		133D9D012772E62B0017DC44 /* TopRatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopRatedCell.xib; sourceTree = "<group>"; };
 		133D9D032772F0C30017DC44 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -42,6 +50,8 @@
 		135816282772E23D005A9D8E /* AnimeShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeShow.swift; sourceTree = "<group>"; };
 		135816302772E56A005A9D8E /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		135816322772E581005A9D8E /* TopRatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedCell.swift; sourceTree = "<group>"; };
+		135A63B2277441A900B40C85 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		137956D92772FE08007F7B17 /* AnimeShow.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnimeShow.xcdatamodel; sourceTree = "<group>"; };
 		13CA7CE62772F48200C60D54 /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		13CA7CE82772F49B00C60D54 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +70,8 @@
 		133A5F522772F8D10034451A /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				133A5F532772F9470034451A /* SearchViewController.swift */,
+				133A5F572772F9D80034451A /* SearchCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -100,6 +112,8 @@
 				135816262772E1E4005A9D8E /* NetworkManager.swift */,
 				135816282772E23D005A9D8E /* AnimeShow.swift */,
 				133D9D032772F0C30017DC44 /* HeaderView.swift */,
+				135A63B2277441A900B40C85 /* CoreDataManager.swift */,
+				137956D82772FE08007F7B17 /* AnimeDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +143,7 @@
 				135816142772E135005A9D8E /* Main.storyboard */,
 				133D9CFF2772E6210017DC44 /* TrendingCell.xib */,
 				133D9D012772E62B0017DC44 /* TopRatedCell.xib */,
+				133A5F552772F9980034451A /* SearchCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,6 +229,7 @@
 				133D9D002772E6210017DC44 /* TrendingCell.xib in Resources */,
 				1358161B2772E135005A9D8E /* LaunchScreen.storyboard in Resources */,
 				135816182772E135005A9D8E /* Assets.xcassets in Resources */,
+				133A5F562772F9980034451A /* SearchCell.xib in Resources */,
 				133D9D022772E62B0017DC44 /* TopRatedCell.xib in Resources */,
 				135816162772E135005A9D8E /* Main.storyboard in Resources */,
 			);
@@ -226,15 +242,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				133A5F582772F9D80034451A /* SearchCell.swift in Sources */,
 				135816272772E1E4005A9D8E /* NetworkManager.swift in Sources */,
 				135816132772E135005A9D8E /* HomeViewController.swift in Sources */,
+				135A63B3277441A900B40C85 /* CoreDataManager.swift in Sources */,
 				13CA7CE72772F48200C60D54 /* PictureCell.swift in Sources */,
 				135816312772E56A005A9D8E /* TrendingCell.swift in Sources */,
 				135816292772E23D005A9D8E /* AnimeShow.swift in Sources */,
 				1358160F2772E135005A9D8E /* AppDelegate.swift in Sources */,
+				133A5F542772F9470034451A /* SearchViewController.swift in Sources */,
 				135816112772E135005A9D8E /* SceneDelegate.swift in Sources */,
 				133D9D082772F3730017DC44 /* AnimePreviewViewController.swift in Sources */,
 				135816332772E581005A9D8E /* TopRatedCell.swift in Sources */,
+				137956DA2772FE08007F7B17 /* AnimeDataModel.xcdatamodeld in Sources */,
 				13CA7CE92772F49B00C60D54 /* DescriptionCell.swift in Sources */,
 				133D9D042772F0C30017DC44 /* HeaderView.swift in Sources */,
 			);
@@ -458,6 +478,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		137956D82772FE08007F7B17 /* AnimeDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				137956D92772FE08007F7B17 /* AnimeShow.xcdatamodel */,
+			);
+			currentVersion = 137956D92772FE08007F7B17 /* AnimeShow.xcdatamodel */;
+			path = AnimeDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 135816032772E135005A9D8E /* Project object */;
 }
