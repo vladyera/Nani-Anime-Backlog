@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WatchlistCell" rowHeight="159" id="SAC-DV-dtk" customClass="WatchlistCell" customModule="nnani" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="429" height="159"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SAC-DV-dtk" id="NlN-iX-N8r">
+                <rect key="frame" x="0.0" y="0.0" width="429" height="159"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rRd-Cr-wSr">
+                        <rect key="frame" x="0.0" y="4" width="115" height="151"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="rRd-Cr-wSr" secondAttribute="height" multiplier="121:159" id="lCt-XL-lNx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ab-u6-z1o">
+                        <rect key="frame" x="131" y="69" width="262" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rRd-Cr-wSr" firstAttribute="leading" secondItem="NlN-iX-N8r" secondAttribute="leading" id="1D0-dR-hVd"/>
+                    <constraint firstItem="0Ab-u6-z1o" firstAttribute="leading" secondItem="rRd-Cr-wSr" secondAttribute="trailing" constant="16" id="VVY-eT-WQX"/>
+                    <constraint firstAttribute="bottom" secondItem="rRd-Cr-wSr" secondAttribute="bottom" constant="4" id="Xvc-3g-Y3f"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0Ab-u6-z1o" secondAttribute="trailing" constant="16" id="a0Y-Mw-LLv"/>
+                    <constraint firstItem="0Ab-u6-z1o" firstAttribute="centerY" secondItem="NlN-iX-N8r" secondAttribute="centerY" id="iJU-C3-nMe"/>
+                    <constraint firstItem="rRd-Cr-wSr" firstAttribute="top" secondItem="NlN-iX-N8r" secondAttribute="top" constant="4" id="tYZ-Qc-QV5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="animeNameLabel" destination="0Ab-u6-z1o" id="XgL-t0-FJ4"/>
+                <outlet property="posterImageVIew" destination="rRd-Cr-wSr" id="xRd-1j-YE9"/>
+            </connections>
+            <point key="canvasLocation" x="-106.5217391304348" y="159.04017857142856"/>
+        </tableViewCell>
+    </objects>
+</document>

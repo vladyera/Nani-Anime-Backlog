@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataManager {
-    private let entityName = "AnimeShow"
+    private let entityName = "Anime"
     
     init() { }
     
@@ -35,6 +35,7 @@ class CoreDataManager {
             animeMO.smallPosterURL = anime.attributes.posterImage.small
             animeMO.summary = anime.attributes.description
             try? context.save()
+            print("Saved")
         }
     }
     

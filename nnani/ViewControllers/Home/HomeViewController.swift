@@ -173,6 +173,7 @@ extension HomeViewController: UICollectionViewDelegate {
         } else {
             vc.anime = topRatedAnime[indexPath.row]
         }
+        vc.cameFrom = .search
         self.present(vc, animated: true)
     }
 }
