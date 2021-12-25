@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -188,11 +189,13 @@
             </objects>
             <point key="canvasLocation" x="3255.072463768116" y="83.705357142857139"/>
         </scene>
-        <!--Item-->
+        <!--Anime-->
         <scene sceneID="OZc-IC-oKg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K9o-6X-siF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mpe-dx-pCh"/>
+                    <tabBarItem key="tabBarItem" title="Anime" id="mpe-dx-pCh">
+                        <imageReference key="image" image="list.bullet.circle" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7cQ-7Z-6gC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -219,14 +222,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="K9o-6X-siF" kind="relationship" relationship="viewControllers" id="fB9-ta-JcB"/>
-                        <segue destination="n0a-Bv-LgX" kind="relationship" relationship="viewControllers" id="8q6-db-cYb"/>
+                        <segue destination="n0a-Bv-LgX" kind="relationship" relationship="viewControllers" id="kdF-or-pfr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuV-sC-LH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
         </scene>
-        <!--Item-->
+        <!--Backlog-->
         <scene sceneID="uSU-b6-BSo">
             <objects>
                 <viewController id="n0a-Bv-LgX" customClass="WatchlistViewController" customModule="nnani" customModuleProvider="target" sceneMemberID="viewController">
@@ -260,17 +263,20 @@
                             <constraint firstItem="cNP-1X-Bst" firstAttribute="trailing" secondItem="OJw-5t-mik" secondAttribute="trailing" id="zZY-sa-O7r"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="qUS-kh-z4H"/>
+                    <tabBarItem key="tabBarItem" title="Backlog" image="star.circle" catalog="system" id="lXj-fb-3BH"/>
+                    <navigationItem key="navigationItem" id="7uA-S3-4p5"/>
                     <connections>
                         <outlet property="watchlistTableView" destination="OJw-5t-mik" id="hAQ-WB-FS2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bzd-ds-89B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="29" y="832"/>
+            <point key="canvasLocation" x="939.13043478260875" y="831.69642857142856"/>
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet.circle" catalog="system" width="128" height="121"/>
+        <image name="star.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

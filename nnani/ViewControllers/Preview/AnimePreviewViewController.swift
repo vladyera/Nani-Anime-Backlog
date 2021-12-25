@@ -41,9 +41,9 @@ class AnimePreviewViewController: UIViewController {
             case .search:
                 buttonTitle = "Save"
             case .backlog:
-                buttonTitle = "Move to completed"
+                buttonTitle = "Move to Completed"
             case .completed:
-                buttonTitle = "Move to backlog"
+                buttonTitle = "Move to Backlog"
             }
         }
     }

@@ -56,6 +56,7 @@ extension WatchlistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WatchlistCell
         cell?.configure(anime: anime[indexPath.row])
+        cell?.selectionStyle = .none
         return cell ?? UITableViewCell()
     }
     
@@ -65,7 +66,11 @@ extension WatchlistViewController: UITableViewDelegate, UITableViewDataSource {
         let anime = AnimeShow(id: animeShowMO.idForSearch!, attributes: .init(canonicalTitle: animeShowMO.title!, posterImage: .init(tiny: animeShowMO.smallPosterURL!, large: animeShowMO.largePosterURL!, small: animeShowMO.smallPosterURL!), description: animeShowMO.summary!, episodeCount: 0))
         let vc = storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as! AnimePreviewViewController
         vc.anime = anime
-        vc.cameFrom = .backlog
+        if showCompleted == true {
+            vc.cameFrom = .completed
+        } else {
+            vc.cameFrom = .backlog
+        }
         self.present(vc, animated: true)
     }
 }

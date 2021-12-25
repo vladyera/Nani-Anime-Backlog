@@ -46,9 +46,9 @@ class HomeViewController: UIViewController {
     }
     
     private func setupInitialView() {
-        self.title = "Anime List"
+//        self.title = "Anime List"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+        self.navigationItem.title = "Anime List"
         //Setting up search
         resultViewController = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
         let searchController = UISearchController(searchResultsController: resultViewController)
@@ -96,7 +96,7 @@ extension HomeViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),heightDimension: .fractionalHeight(9/10))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),heightDimension: .fractionalHeight(1/2.1))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/2),heightDimension: .fractionalHeight(1/1.7))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous

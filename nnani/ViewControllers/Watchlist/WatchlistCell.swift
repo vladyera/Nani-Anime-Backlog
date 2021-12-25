@@ -13,6 +13,7 @@ class WatchlistCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        posterImageVIew.layer.cornerRadius = 8
     }
     
     override func prepareForReuse() {

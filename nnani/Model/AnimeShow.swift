@@ -26,3 +26,12 @@ struct Attributes: Codable, Hashable {
 struct PosterImage: Codable, Hashable {
     let tiny, large, small: String
 }
+
+struct Anime {
+    let id: UUID
+    let apiID: String
+    let title: String
+    let summary: String
+    let smallPoster, largePoster: String
+    let isWatched: Bool
+}
