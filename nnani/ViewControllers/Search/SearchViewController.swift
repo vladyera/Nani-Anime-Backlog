@@ -28,7 +28,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         if searchController.searchBar.text!.count >= 3 {
             let text = makeValidSearch(text: searchController.searchBar.text!)
             print("https://kitsu.io/api/edge/anime?filter[text]=\(text)")
-            networkManager.downloadAnimeShows(from: "https://kitsu.io/api/edge/anime?filter[text]=\(searchController.searchBar.text!)") { animes in
+            networkManager.downloadAnimeShows(from: "https://kitsu.io/api/edge/anime?filter[text]=\(text)") { animes in
                 self.searchedAnime = animes
                 self.searchTableView.reloadData()
             }
@@ -41,10 +41,10 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         while result.contains("  ") {
             result = result.replacingOccurrences(of: "  ", with: " ")
         }
-        if result.last == " " {
-            result.removeLast()
-        }
-        result = result.replacingOccurrences(of: " ", with: "%")
+//        if result.last == " " {
+//            result.removeLast()
+//        }
+        result = result.replacingOccurrences(of: " ", with: "-")
         result = result.replacingOccurrences(of: ",", with: "")
         result = result.replacingOccurrences(of: ".", with: "")
         return result
