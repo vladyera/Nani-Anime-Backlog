@@ -14,7 +14,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
     let networkManager = NetworkManager()
 //    let searchURL = "https://kitsu.io/api/edge/anime?filter[text]="
     
-    var searchedAnime: [AnimeShow] = []
+    var searchedAnime: [Anime] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +49,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating {
         result = result.replacingOccurrences(of: ".", with: "")
         return result
     }
-    
-    
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {

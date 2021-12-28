@@ -20,9 +20,9 @@ class WatchlistCell: UITableViewCell {
         posterImageVIew.image = nil
     }
     
-    func configure(anime: AnimeShowMO) {
+    func configure(anime: Anime) {
         animeNameLabel.text = anime.title
-        guard let url = URL(string: anime.smallPosterURL ?? "") else { return }
+        guard let url = URL(string: anime.smallPoster ?? "") else { return }
         var task: URLSessionDataTask!
         self.posterImageVIew.image = nil
         if let task = task {

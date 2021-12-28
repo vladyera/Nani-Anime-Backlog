@@ -23,23 +23,23 @@ class CoreDataManager {
         return container
     }()
     
-    func saveAnime(anime: AnimeShow,isWatched: Bool) {
+    func saveAnime(anime: Anime,isWatched: Bool) {
         let context = persistentContainer.viewContext
         if let entityDescription = NSEntityDescription.entity(forEntityName: entityName, in: context) {
             let animeMO = AnimeShowMO(entity: entityDescription, insertInto: context)
             animeMO.id = UUID()
             animeMO.isWatched = isWatched
-            animeMO.idForSearch = anime.id
-            animeMO.title = anime.attributes.canonicalTitle
-            animeMO.largePosterURL = anime.attributes.posterImage.large
-            animeMO.smallPosterURL = anime.attributes.posterImage.small
-            animeMO.summary = anime.attributes.description
+            animeMO.idForSearch = anime.apiID
+            animeMO.title = anime.title
+            animeMO.largePosterURL = anime.largePoster
+            animeMO.smallPosterURL = anime.smallPoster
+            animeMO.summary = anime.summary
             try? context.save()
             print("Saved")
         }
     }
     
-    func updateStatus(anime: AnimeShowMO, isWatched: Bool) {
+    func updateStatus(anime: Anime, isWatched: Bool) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         let context = persistentContainer.viewContext
         guard let result = try? persistentContainer.viewContext.fetch(request) as? [AnimeShowMO] else { return }
@@ -51,13 +51,16 @@ class CoreDataManager {
         try? context.save()
     }
     
-    func fetchAnime() -> [AnimeShowMO] {
+    func fetchAnime() -> [Anime] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         guard let result = try? persistentContainer.viewContext.fetch(request) as? [AnimeShowMO] else { return [] }
-        return result
+        let mappedResult = result.map { animeMO in
+            Anime(id: animeMO.id!, apiID: animeMO.idForSearch!, title: animeMO.title!, summary: animeMO.summary!, smallPoster: animeMO.smallPosterURL!, largePoster: animeMO.largePosterURL!, isWatched: animeMO.isWatched)
+        }
+        return mappedResult
     }
     
-    func deleteAnime(anime: AnimeShowMO) {
+    func deleteAnime(anime: Anime) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         let context = persistentContainer.viewContext
         guard let result = try? persistentContainer.viewContext.fetch(request) as? [AnimeShowMO] else { return }

@@ -20,9 +20,9 @@ class SearchCell: UITableViewCell {
         posterImageView.image = nil
     }
     
-    func configure(with anime: AnimeShow) {
-        titleLabel.text = anime.attributes.canonicalTitle
-        guard let url = URL(string: anime.attributes.posterImage.small) else { return }
+    func configure(with anime: Anime) {
+        titleLabel.text = anime.title
+        guard let url = URL(string: anime.smallPoster) else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data {
                 guard let downImage = UIImage(data: data) else { return }

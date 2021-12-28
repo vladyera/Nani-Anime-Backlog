@@ -27,7 +27,7 @@ struct PosterImage: Codable, Hashable {
     let tiny, large, small: String
 }
 
-struct Anime {
+struct Anime: Hashable {
     let id: UUID
     let apiID: String
     let title: String

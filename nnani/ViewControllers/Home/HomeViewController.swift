@@ -22,8 +22,8 @@ class HomeViewController: UIViewController {
     
     private let networkManager = NetworkManager()
     
-    private var trendingAnime: [AnimeShow]  = []
-    private var topRatedAnime: [AnimeShow] = []
+    private var trendingAnime: [Anime]  = []
+    private var topRatedAnime: [Anime] = []
     
     private lazy var dataSource = configureDataSource()
     
@@ -128,8 +128,8 @@ extension HomeViewController {
 
 //MARK: - Data Source
 extension HomeViewController {
-    private func configureDataSource() -> UICollectionViewDiffableDataSource<Section, AnimeShow> {
-        let dataSource = UICollectionViewDiffableDataSource<Section, AnimeShow>(collectionView: homeCollectionView) { collectionView, indexPath, itemIdentifier in
+    private func configureDataSource() -> UICollectionViewDiffableDataSource<Section, Anime> {
+        let dataSource = UICollectionViewDiffableDataSource<Section, Anime>(collectionView: homeCollectionView) { collectionView, indexPath, itemIdentifier in
             if indexPath.section == 0 {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.trending.rawValue, for: indexPath) as! TrendingCell
                 cell.configure(with: self.trendingAnime[indexPath.row])
@@ -155,7 +155,7 @@ extension HomeViewController {
     }
     
     private func updateSnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, AnimeShow>()
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Anime>()
         snapshot.appendSections([.trending, .topRated])
         snapshot.appendItems(trendingAnime, toSection: .trending)
         snapshot.appendItems(topRatedAnime, toSection: .topRated)

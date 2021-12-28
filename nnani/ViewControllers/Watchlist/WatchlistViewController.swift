@@ -12,7 +12,7 @@ class WatchlistViewController: UIViewController {
     @IBOutlet weak var watchlistTableView: UITableView!
     let coreDataManager = CoreDataManager()
     
-    private var anime: [AnimeShowMO] = []
+    private var anime: [Anime] = []
     private let cellIdentifier = "WatchlistCell"
     
     private var showCompleted = false
@@ -62,8 +62,7 @@ extension WatchlistViewController: UITableViewDelegate, UITableViewDataSource {
     
     //Shitshow
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let animeShowMO = anime[indexPath.row]
-        let anime = AnimeShow(id: animeShowMO.idForSearch!, attributes: .init(canonicalTitle: animeShowMO.title!, posterImage: .init(tiny: animeShowMO.smallPosterURL!, large: animeShowMO.largePosterURL!, small: animeShowMO.smallPosterURL!), description: animeShowMO.summary!, episodeCount: 0))
+        let anime = anime[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as! AnimePreviewViewController
         vc.anime = anime
         if showCompleted == true {

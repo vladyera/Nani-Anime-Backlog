@@ -29,9 +29,9 @@ class TrendingCell: UICollectionViewCell {
         posterImageView.contentMode = .scaleAspectFill
     }
     
-    func configure(with anime: AnimeShow) {
-        animeNameLabel.text = anime.attributes.canonicalTitle
-        guard let url = URL(string: anime.attributes.posterImage.small) else { return }
+    func configure(with anime: Anime) {
+        animeNameLabel.text = anime.title
+        guard let url = URL(string: anime.smallPoster) else { return }
         var task: URLSessionDataTask?
         self.posterImageView.image = nil
         if let task = task {

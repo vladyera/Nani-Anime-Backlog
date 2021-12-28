@@ -14,7 +14,7 @@ class AnimePreviewViewController: UIViewController {
     
     @IBOutlet weak var animeTableView: UITableView!
     
-    var anime: AnimeShow?
+    var anime: Anime?
     var buttonTitle = "Save"
     
     private enum CellIdentifiers: String {
@@ -91,7 +91,7 @@ extension AnimePreviewViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.description.rawValue) as! DescriptionTableViewCell
-            cell.descriptionLabel.text = anime.attributes.description
+            cell.descriptionLabel.text = anime.summary
             return cell
         }
     }

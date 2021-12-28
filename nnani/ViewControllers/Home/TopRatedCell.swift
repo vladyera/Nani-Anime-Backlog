@@ -28,9 +28,9 @@ class TopRatedCell: UICollectionViewCell {
         animeNameLabel.text = ""
     }
     
-    func configure(with anime: AnimeShow) {
-        self.animeNameLabel.text = anime.attributes.canonicalTitle
-        guard let url = URL(string: anime.attributes.posterImage.small) else { return }
+    func configure(with anime: Anime) {
+        self.animeNameLabel.text = anime.title
+        guard let url = URL(string: anime.smallPoster) else { return }
         var task: URLSessionDataTask!
         self.posterImageView.image = nil
         if let task = task {
