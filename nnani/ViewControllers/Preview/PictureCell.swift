@@ -16,6 +16,7 @@ class PictureTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         posterImageView.contentMode = .scaleAspectFill
+        saveButton.layer.cornerRadius = 8
     }
     
     func configure(with anime: Anime, buttonTitle: String) {

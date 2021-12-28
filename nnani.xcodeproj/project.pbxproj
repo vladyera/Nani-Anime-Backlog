@@ -428,6 +428,7 @@
 				DEVELOPMENT_TEAM = UPFN4PM74U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nnani/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nani?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -457,6 +458,7 @@
 				DEVELOPMENT_TEAM = UPFN4PM74U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nnani/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Nani?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

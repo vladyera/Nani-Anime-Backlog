@@ -49,6 +49,16 @@ extension WatchlistViewController: UITableViewDelegate, UITableViewDataSource {
         return anime.count
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, view, completion) in
+            self?.coreDataManager.deleteAnime(anime: self!.anime[indexPath.row])
+            self!.anime = self!.coreDataManager.fetchAnime().filter({$0.isWatched == self!.showCompleted})
+            self!.watchlistTableView.reloadData()
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [delete])
+        return configuration
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
@@ -65,11 +75,19 @@ extension WatchlistViewController: UITableViewDelegate, UITableViewDataSource {
         let anime = anime[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as! AnimePreviewViewController
         vc.anime = anime
+        vc.delegate = self
         if showCompleted == true {
             vc.cameFrom = .completed
         } else {
             vc.cameFrom = .backlog
         }
         self.present(vc, animated: true)
+    }
+}
+
+extension WatchlistViewController: IAnimePreviewControllerDelegate {
+    func changedAnimeStatus() {
+        anime = coreDataManager.fetchAnime().filter({$0.isWatched == showCompleted})
+        watchlistTableView.reloadData()
     }
 }

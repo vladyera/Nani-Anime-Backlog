@@ -7,10 +7,15 @@
 
 import UIKit
 
+protocol IAnimePreviewControllerDelegate: AnyObject {
+    func changedAnimeStatus()
+}
+
 class AnimePreviewViewController: UIViewController {
     
     let coreDataManager = CoreDataManager()
     
+    weak var delegate: IAnimePreviewControllerDelegate?
     
     @IBOutlet weak var animeTableView: UITableView!
     
@@ -50,22 +55,32 @@ class AnimePreviewViewController: UIViewController {
     
     //Move this to the cell
     @IBAction func savePressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "", message: "Save to:", preferredStyle: .actionSheet)
-        guard let anime = anime else {
-            return
+        if cameFrom == .search {
+            let alert = UIAlertController(title: "", message: "Save to:", preferredStyle: .actionSheet)
+            guard let anime = anime else {
+                return
+            }
+            alert.addAction(UIAlertAction(title: "Backlog", style: .default , handler:{ (UIAlertAction)in
+                self.coreDataManager.saveAnime(anime: anime, isWatched: false)
+            }))
+            alert.addAction(UIAlertAction(title: "Completed", style: .default , handler:{ (UIAlertAction)in
+                self.coreDataManager.saveAnime(anime: anime, isWatched: true)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
+                print("User click Dismiss button")
+            }))
+            self.present(alert, animated: true)
+        } else if cameFrom == .backlog {
+            self.dismiss(animated: true) {
+                self.coreDataManager.updateStatus(anime: self.anime!, isWatched: true)
+                self.delegate?.changedAnimeStatus()
+            }
+        } else if cameFrom == .completed {
+            self.dismiss(animated: true) {
+                self.coreDataManager.updateStatus(anime: self.anime!, isWatched: false)
+                self.delegate?.changedAnimeStatus()
+            }
         }
-        alert.addAction(UIAlertAction(title: "Backlog", style: .default , handler:{ (UIAlertAction)in
-            self.coreDataManager.saveAnime(anime: anime, isWatched: false)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Completed", style: .default , handler:{ (UIAlertAction)in
-            self.coreDataManager.saveAnime(anime: anime, isWatched: true)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
-            print("User click Dismiss button")
-        }))
-        self.present(alert, animated: true)
     }
 }
 

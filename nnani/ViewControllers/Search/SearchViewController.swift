@@ -59,6 +59,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PreviewViewController") as! AnimePreviewViewController
         vc.anime = searchedAnime[indexPath.row]
+        vc.cameFrom = .search
         self.present(vc, animated: true)
     }
     
@@ -69,6 +70,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SearchCell
         cell.configure(with: searchedAnime[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
 }
